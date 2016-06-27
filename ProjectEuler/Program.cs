@@ -10,6 +10,7 @@ namespace ProjectEuler
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(Utility.DifferenceBetweenSqueares(0, 100));
         }
     }
 }
