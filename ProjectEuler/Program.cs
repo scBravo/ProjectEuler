@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ProjectEuler.Solutions.Solutions1_10;
 
 namespace ProjectEuler
 {
@@ -10,7 +11,7 @@ namespace ProjectEuler
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Utility.DifferenceBetweenSqueares(0, 100));
+            Console.WriteLine(LargestProduct());
         }
     }
 }
