@@ -10,6 +10,25 @@ namespace ProjectEuler.Solutions
     static class Solutions1_10
     {
         /// <summary>
+        /// Solution 1
+        /// Calculate sum of all multiples of 3 and 5 below limit parameter
+        /// </summary>
+        /// <param name="limit">Natural number what you want calculate</param>
+        /// <returns>int</returns>
+        public static int Multiples(int limit)
+        {
+            int sum=0;
+            for(int i=0;i<limit;i++)
+            {
+                if (i%3==0||i%5==0)
+                {
+                    sum = sum + i;
+                }
+            }
+            return sum;
+        }
+        /// <summary>
+        /// Solutin 6
         /// Method calculate different between two parameters
         /// </summary>
         /// <param name="minValue">Start value</param>
@@ -31,8 +50,96 @@ namespace ProjectEuler.Solutions
             }
             return Math.Abs(squareOfSums - sumOfSqueares);
         }
+
         /// <summary>
-        /// 
+        /// Problem 2
+        /// Find sum of even numbers in fibonacci sequence whose values do not exceed limit parameter 
+        /// </summary>
+        /// <param name="limit">Sequence limit</param>
+        /// <returns>int</returns>
+        public static int Fibonacci(int limit)
+        {
+            int start = 1;
+            int sum = 0;
+            for (int i = 2; i < limit; i = i + start, start = i - start)
+            {
+                if (i % 2 == 0)
+                    sum += i;
+            }
+            return sum;
+        }
+        /// <summary>
+        /// This method find largest palindrome
+        /// </summary>
+        /// <returns></returns>
+        public static int PalindromFinder()
+        {
+            int x = 999;
+            while (x!=1)
+            {
+                int y = x;
+                for(int j = 0;j<100;j++)
+                {
+                    if ((y * x).ToString() == new string(Convert.ToString(y*x).Reverse().ToArray()))
+                        return y * x;
+                    y--;
+                }
+                x--;
+            }
+            return x;           
+        }
+
+        /// <summary>
+        /// This function return smallest number that is be evenly divisible from 1 to 20
+        /// </summary>
+        /// <returns>int</returns>
+        public static int GetSmallestMultiple()
+        {
+            //TODO: Explore algorithm and re-write this method.
+            int result = 20;
+            while(true)
+            {
+                int i = 2;
+                while (i<=20)
+                {
+                    if (result % i != 0)
+                        break;
+                    else if (i == 20)
+                        return result;
+                    i++;
+                }
+                result++;
+            }
+
+            return 0;
+        }
+
+        /// <summary>
+        /// Return prime factor of parameter
+        /// </summary>
+        /// <param name="number">Int64 number</param>
+        /// <returns>int</returns>
+        public static int LargestPrimeFactor(Int64 number)
+        {
+            Int64 maxFactor = 2;
+            while (number != 1)
+            {
+                if (number % maxFactor == 0)
+                {
+                    number /= maxFactor;
+                }
+                else if (number < maxFactor * maxFactor)
+                    maxFactor = number;
+                else
+                    maxFactor++;
+            }
+
+            return (int)maxFactor;
+        }
+
+        /// <summary>
+        /// Solution 8
+        /// Calculate largest product of 13 digits in 1000 digits number
         /// </summary>
         /// <returns></returns>
         public static Int64 LargestProduct()
